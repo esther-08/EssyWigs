@@ -1,0 +1,21 @@
+﻿@model ProductListModel
+
+    <h1>@Model.SupplierWDiscount</h1>
+    @foreach(var product in Model.Products)
+    {
+    <div class="col-sm-4 col-lg-md-4">
+        <div class="img-thumbnail">
+            <img src="ImageUrl" alt="" >
+            <div class="caption">
+                <h3 class="pull-right">@product.Price.ToString("c")</h3>
+                <h3>
+                    <a>@product.Name</a>
+                </h3>
+                <p>@product.Description</p>
+                <p>@supplier.Name</p>
+            </div>
+        </div>
+    </div>
+    }
+
+ 
