@@ -1,4 +1,4 @@
-﻿@model ProductListModel
+﻿@model ProductListViewModel
 
     <h1>@Model.SupplierWDiscount</h1>
     @foreach(var product in Model.Products)
@@ -12,7 +12,6 @@
                     <a>@product.Name</a>
                 </h3>
                 <p>@product.Description</p>
-                <p>@supplier.Name</p>
             </div>
         </div>
     </div>
