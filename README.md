@@ -9,7 +9,7 @@ This project is aimed at building a hair wigs and extensions ASP.NET web applica
 
 ## Background
 
-There is an observable gap in accessibility of women hair extensions and wigs in Sweden. Due to the exponential population increase of the African community in Sweden, digital solutions that improve wellbeing by bringing such basic needs closer to the stated market 
+There is an observable gap in accessibility of women hair wigs and extensions in Sweden. Due to the exponential population increase of the African community in Sweden, digital solutions that improve wellbeing by bringing such basic needs closer to the stated market 
 segment are on high demand. According to a survey conducted through the use of the google search engine, a search for hair extensions and wigs returns links to websites for online shops 
 outside Sweden. EssyWigs is a solution that doesn't only improve accessibility but in addition, inherently reduces costs incurred and waiting time when the alternatives are considered.
 
