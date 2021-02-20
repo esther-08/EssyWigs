@@ -7,6 +7,6 @@ namespace EssyWigs.Models
 {
     public interface IShoppingCartRepository
     {
-        IEnumerable<ShoppingCart> shoppingCarts { get; set; }
+        IEnumerable<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

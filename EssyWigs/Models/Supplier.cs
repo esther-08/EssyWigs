@@ -7,7 +7,10 @@ namespace EssyWigs.Models
 {
     public class Supplier: Stakeholder
     {
-        public int SupplierId { get; set; }
+        public Supplier(string supplierName, string email, string phoneNumber) : base(email, phoneNumber)
+        {
+            SupplierName = supplierName;
+        }
         public string SupplierName { get; set; }
         
     }

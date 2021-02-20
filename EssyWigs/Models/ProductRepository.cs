@@ -17,7 +17,7 @@ namespace EssyWigs.Models
         {
             get
             {
-                return _wigDbContext.Products.Include(s => s.Supplier);
+                return _wigDbContext.Products.Include(s => s.Name);
             }
         }
 
