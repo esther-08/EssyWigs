@@ -9,6 +9,6 @@ namespace EssyWigs.ViewModels
     public class ProductListViewModel
     {
         public IEnumerable<Product> Products { get; set; }
-        public string SupplierWDiscount{ get; set; }
+        public string ProductWDiscount { get; set; }
     }
 }
