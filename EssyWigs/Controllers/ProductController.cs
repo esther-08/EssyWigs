@@ -12,7 +12,8 @@ namespace EssyWigs.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ISupplierRepository _supplierRepository;
-       
+        private Product productWDiscount;
+
         public ProductController(IProductRepository productRepository, ISupplierRepository supplierRepository)
         {
             _productRepository = productRepository;
@@ -20,20 +21,34 @@ namespace EssyWigs.Controllers
            
         }
 
-        public ViewResult List()
+        public IActionResult Details(int id)
         {
-            ProductListViewModel productListViewModel = new ProductListViewModel();
-            productListViewModel.Products = _productRepository.AllProducts;
-
-            productListViewModel.SupplierWDiscount = "Ronah Hair";
-            return View(productListViewModel);
-        }
-        public IActionResult Details(int productId)
-        {
-            var product = _productRepository.GetProductById(productId);
+            var product = _productRepository.GetProductById(id);
             if (product == null)
                 return NotFound();
             return View(product);
+        }
+        public ViewResult List(string supplier)
+        {
+            IEnumerable<Product> products;
+            //string productWDiscount;
+
+            if (string.IsNullOrEmpty(supplier))
+            {
+                products = _productRepository.AllProducts.OrderBy(p => p.ProductId);
+                //productWDiscount = "All products";
+            }
+            else
+            {
+                products = _productRepository.AllProducts.Where(p => p.Supplier.SupplierName == supplier)
+                    .OrderBy(p => p.ProductId);
+                productWDiscount = _productRepository.AllProducts.FirstOrDefault(s => s.Name == supplier);
+            }
+            return View(new ProductListViewModel
+            {
+                Products = products,
+                ProductWDiscount = productWDiscount.ToString()
+            });
         }
     }
 }
