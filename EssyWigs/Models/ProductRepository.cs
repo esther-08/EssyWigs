@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace EssyWigs.Models
 {
-    public class ProductRepository:IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly WigDbContext _wigDbContext;
+      
+
         public ProductRepository(WigDbContext wigDbContext)
         {
             _wigDbContext = wigDbContext;
@@ -17,7 +19,15 @@ namespace EssyWigs.Models
         {
             get
             {
-                return _wigDbContext.Products.Include(s => s.Name);
+                return _wigDbContext.Products.Include(s => s.Supplier);
+            }
+        }
+
+        public IEnumerable<Product> ProductWDiscount
+        {
+            get
+            {
+                return _wigDbContext.Products.Where(p => p.ProductWDiscount);
             }
         }
 
@@ -27,26 +37,7 @@ namespace EssyWigs.Models
         {
             return _wigDbContext.Products.FirstOrDefault(p => p.ProductId == productId);
         }
-        //public async Task<Product>CreateProductAsync(Product product)
-        //{
-        //    _essyWigDbContext.Products.Add(product);
-        //    await _essyWigDbContext.SaveChangesAsync();
-        //    return product
-            
-        //}
-        //public bool DeleteProductAsync(int productId)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
-        //public IEnumerable<Product> GetAllProductsAsync()
-        //{
-        //    throw new NotImplementedException();
-        //}
-        //public Product GetProductByIdAssync(int product)
-        //{
-        //    throw new NotImplementedExceptionException();
-        //}
-        
+      
     }
 }

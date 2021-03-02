@@ -12,6 +12,12 @@ namespace EssyWigs.Models
         {
             _wigDbContext = wigDbContext;
         }
-        public IEnumerable<ShoppingCart> AllShoppingCarts => _wigDbContext.ShoppingCarts;
+        public IEnumerable<ShoppingCart> AllShoppingCarts
+        {
+            get
+            {
+                return _wigDbContext.ShoppingCarts;
+            }
+        }
     }
 }

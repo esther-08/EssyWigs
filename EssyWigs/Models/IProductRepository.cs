@@ -8,6 +8,8 @@ namespace EssyWigs.Models
     public interface IProductRepository
     {
         IEnumerable<Product> AllProducts { get; set; }
+        IEnumerable<Product> ProductWDiscount { get; }
+
         Product GetProductById(int productId);
     }
 }
