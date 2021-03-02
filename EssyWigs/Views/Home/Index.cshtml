@@ -1,8 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model HomeViewModel
 
-<div class="text-center">
-    <h1 class="display-4">EssyWigs</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<partial name="_Wig" />
+
+<h2>Products on Discount</h2>
+
+<div class="row">
+    @foreach(var Product in Model.ProductWDiscount)
+    {
+        <partial name="_Product" model="Product" />
+    }
 </div>

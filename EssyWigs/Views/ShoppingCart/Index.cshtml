@@ -1,0 +1,36 @@
+﻿@model ShoppingCartViewModel
+
+<h2>Your shopping cart</h2>
+<h4>These are the products in your shopping cart.</h4>
+<table class="table table-bordered table-striped">
+    <thread>
+        <tr>
+            <th>Amount for selected items</th>
+            <th>Product</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Totalcost</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach(var line in Model.ShoppingCart.ShoppingCartProducts)
+        {
+        <tr>
+            <td class="text-center">@line.TotalCost</td>
+            <td class="text-left">@line.Product.Name</td>
+            <td class="text-right">@line.Product.Price.ToString("c")</td>
+            <td class="text-right">@((line.TotalCost).ToString("c"))</td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.ShoppingCartTotal.ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="ProductOrder" asp-action="Checkout">Checkout</a>
+</div>
