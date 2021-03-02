@@ -23,14 +23,23 @@ namespace EssyWigs
             Configuration = configuration;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            IServiceCollection serviceCollections = services.AddDbContext<WigDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //IServiceCollection serviceCollections = services.AddDbContext<WigDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("WigDbContext")));
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
+            services.AddScoped(sp => ShoppingCart.GetCart(sp));
+            services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
+
+            services.AddHttpContextAccessor();
+            services.AddSession();
+
             services.AddControllersWithViews();
+            services.AddDbContext<WigDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WigDbContext")));
+
         }
        
 
@@ -49,6 +58,7 @@ namespace EssyWigs
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
