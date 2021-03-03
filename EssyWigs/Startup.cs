@@ -28,7 +28,8 @@ namespace EssyWigs
         {
             //IServiceCollection serviceCollections = services.AddDbContext<WigDbContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("WigDbContext")));
-
+            services.AddDbContext<WigDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WigDbContext")));
+            
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
@@ -38,7 +39,7 @@ namespace EssyWigs
             services.AddSession();
 
             services.AddControllersWithViews();
-            services.AddDbContext<WigDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WigDbContext")));
+           
 
         }
        
