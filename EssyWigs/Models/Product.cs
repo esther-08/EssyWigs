@@ -23,7 +23,7 @@ namespace EssyWigs.Models
             CapSize = capSize;
             Price = price;
             Description = description;
-            //ImageLink = imageLink;
+            
 
             Supplier = supplier;
             ProductWDiscount = productWDiscount;
@@ -38,7 +38,6 @@ namespace EssyWigs.Models
         public string CapSize { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
-        //public string ImageLink { get; set; }
         public int? SupplierId { get; set; }
         public Supplier Supplier { get; set; }
         public bool ProductWDiscount { get; set; }

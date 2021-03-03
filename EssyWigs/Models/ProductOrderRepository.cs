@@ -30,8 +30,8 @@ namespace EssyWigs.Models
                     ProductId = shoppingCartProduct.Product.ProductId,
                     ProductOrderId = productOrder.ProductOrderId,
                     Price = shoppingCartProduct.Product.Price,
-                    //Email = productOrder.Stakeholder.Email,
-                    //PhoneNumber = productOrder.PhoneNumber
+                    Email = productOrder.Email,
+                    PhoneNumber = productOrder.PhoneNumber
                    
                 };
                 _wigDbContext.OrderDetails.Add(orderDetail);

@@ -18,5 +18,7 @@ namespace EssyWigs.Models
         public double Price { get; set; }
         public Product Product { get; set; }
         public ProductOrder ProductOrder { get; set; }
+        public string Email { get; internal set; }
+        public string PhoneNumber { get; internal set; }
     }
 }
