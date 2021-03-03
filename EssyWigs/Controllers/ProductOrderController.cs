@@ -40,8 +40,8 @@ namespace EssyWigs.Controllers
         [HttpPost]
         public IActionResult Checkout(ProductOrder productOrder)
         {
-            var products = _shoppingCart.GetShoppingCartProducts();
-            _shoppingCart.ShoppingCartProducts = products;
+            var items = _shoppingCart.GetShoppingCartProducts();
+            _shoppingCart.ShoppingCartProducts = items;
 
             if (_shoppingCart.ShoppingCartProducts.Count == 0)
             {
@@ -52,7 +52,7 @@ namespace EssyWigs.Controllers
             {
                 _productOrderRepository.CreateProductOrder(productOrder);
                 _shoppingCart.ClearCart();
-                return RedirectToAction("CheckoutComplete");
+                return RedirectToAction("CheckoutFinished");
             }
             return View(productOrder);
         
