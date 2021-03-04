@@ -35,10 +35,10 @@ namespace EssyWigs.Models
                    
                 };
                 _wigDbContext.OrderDetails.Add(orderDetail);
-        
-             }
-             _wigDbContext.SaveChanges();
+                
+            }
 
+            _wigDbContext.SaveChanges();
         }
     
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EssyWigs.Migrations
 {
     [DbContext(typeof(WigDbContext))]
-    [Migration("20210302201410_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210303111950_NewDB")]
+    partial class NewDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,12 @@ namespace EssyWigs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -68,9 +74,6 @@ namespace EssyWigs.Migrations
                     b.Property<string>("HairType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageLink")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Material")
                         .HasColumnType("nvarchar(max)");
 
@@ -100,7 +103,6 @@ namespace EssyWigs.Migrations
                             Colour = "Maroon",
                             Description = "Fluffy synthetic wig",
                             HairType = "Kinky",
-                            ImageLink = "https://www.google.com/aclk?sa=l&ai=DChcSEwjfoLaMspLvAhVH-LIKHQy_BhwYABAKGgJscg&sig=AOD64_0lx5ukL75-HMLYUOsn_x1HpbS5NA&adurl&ctype=5&ved=2ahUKEwjbtauMspLvAhWNtCoKHc2ZAHwQvhd6BAgBEHQ",
                             Material = "Ronah Synthetic Hair",
                             Name = "Front Lace Wig",
                             Price = 200.0,
@@ -114,7 +116,6 @@ namespace EssyWigs.Migrations
                             Colour = "Black",
                             Description = "Very soft human hair wig. Can be washed and styled.",
                             HairType = "Kinky",
-                            ImageLink = "https://www.urhair.co.uk/petite-monofilament-wigs-for-women-long-length-auburn-color-skuiw04352.html",
                             Material = "Jane Human Hair",
                             Name = "Lace Wig",
                             Price = 300.0,
@@ -128,7 +129,6 @@ namespace EssyWigs.Migrations
                             Colour = "Blonde",
                             Description = "soft human hair wig",
                             HairType = "Coily",
-                            ImageLink = "https://www.lightinthebox.com/en/p/women-human-hair-lace-wig-brazilian-human-hair-glueless-lace-front-130-density-bob-haircut-layered-haircut-with-baby-hair-natural-wave_p6370484.html?category_id=2636&prm=1.2.1.31",
                             Material = "Jane Human Hair",
                             Name = "Beautiful Blonde Wavy",
                             Price = 160.0,
@@ -142,7 +142,6 @@ namespace EssyWigs.Migrations
                             Colour = "Brown",
                             Description = "Wavy wig with failry good hair volume for right fitting.",
                             HairType = "Wavy",
-                            ImageLink = "https://www.lightinthebox.com/en/p/kinky-curly-360-lace-frontal-wigs-with-baby-hair-8-22-brazilian-360-lace-wigs-for-african-americans-180-density-unprocessed-human-hair-360-wigs_p5829135.html?prm=1.3.0.9",
                             Material = "Jane Human Hair",
                             Name = "Brown Wavy Wig",
                             Price = 400.0,
@@ -156,9 +155,8 @@ namespace EssyWigs.Migrations
                             Colour = "Gold",
                             Description = "This wig adds alot of brightness to one's look.",
                             HairType = "Kinky",
-                            ImageLink = "https://www.howig.co.uk/brown-boycuts-straight-stylish-petite-wigs-skuiw04352.html",
                             Material = "Jane Human Hair",
-                            Name = "Full Lave Wig",
+                            Name = "Full Wave Wig",
                             Price = 350.0,
                             ProductWDiscount = false,
                             SupplierId = 1
@@ -170,7 +168,6 @@ namespace EssyWigs.Migrations
                             Colour = "Gold",
                             Description = "Beautiful hair piece.",
                             HairType = "Curly",
-                            ImageLink = "https://www.howig.co.uk/brown-boycuts-straight-stylish-petite-wigs-skuiw04352.html",
                             Material = "Jane Human Hair",
                             Name = "Remy Human Hair",
                             Price = 100.0,
@@ -184,7 +181,6 @@ namespace EssyWigs.Migrations
                             Colour = "Gold",
                             Description = "Beautiful hair piece.",
                             HairType = "Curly",
-                            ImageLink = "https://www.google.com/aclk?sa=l&ai=DChcSEwjfoLaMspLvAhVH-LIKHQy_BhwYABAFGgJscg&sig=AOD64_0W712jnxPaSH7901DojCFxS6xmeQ&adurl&ctype=5&ved=2ahUKEwjbtauMspLvAhWNtCoKHc2ZAHwQvhd6BAgBEGo",
                             Material = "Ronah Synthetic Hair",
                             Name = "Remy Human Hair",
                             Price = 100.0,
@@ -201,16 +197,21 @@ namespace EssyWigs.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<long>("PaymentCardNo")
                         .HasColumnType("bigint");

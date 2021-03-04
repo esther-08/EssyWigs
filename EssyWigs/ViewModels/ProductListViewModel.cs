@@ -10,5 +10,6 @@ namespace EssyWigs.ViewModels
     {
         public IEnumerable<Product> Products { get; set; }
         public string ProductWDiscount { get; set; }
+        
     }
 }

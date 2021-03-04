@@ -13,7 +13,7 @@ namespace EssyWigs.Models
         public readonly WigDbContext _wigDbContext;
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartProduct> ShoppingCartProducts { get; set; }
-        public ShoppingCart(WigDbContext wigDbContext)
+        private ShoppingCart(WigDbContext wigDbContext)
         {
             _wigDbContext = wigDbContext;
         }

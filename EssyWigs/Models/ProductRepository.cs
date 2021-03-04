@@ -19,7 +19,7 @@ namespace EssyWigs.Models
         {
             get
             {
-                return _wigDbContext.Products.Include(s => s.Supplier);
+                return _wigDbContext.Products.Where(p => p.ProductId > 0);
             }
         }
 
@@ -31,7 +31,15 @@ namespace EssyWigs.Models
             }
         }
 
-        IEnumerable<Product> IProductRepository.AllProducts { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //IEnumerable<Product> IProductRepository.AllProducts { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        IEnumerable<Product> IProductRepository.AllProducts 
+        {
+            get
+            {
+                return _wigDbContext.Products.Where(p => p.ProductId > 0);
+            }    
+            set => throw new NotImplementedException(); 
+        }
 
         public Product GetProductById(int productId)
         {

@@ -18,9 +18,7 @@ namespace EssyWigs.Controllers
         {
             _productRepository = productRepository;
             _supplierRepository = supplierRepository;
-           
         }
-
         public IActionResult Details(int id)
         {
             var product = _productRepository.GetProductById(id);
@@ -31,12 +29,11 @@ namespace EssyWigs.Controllers
         public ViewResult List(string supplier)
         {
             IEnumerable<Product> products;
-            //string productWDiscount;
 
             if (string.IsNullOrEmpty(supplier))
             {
                 products = _productRepository.AllProducts.OrderBy(p => p.ProductId);
-                //productWDiscount = "All products";
+               
             }
             else
             {

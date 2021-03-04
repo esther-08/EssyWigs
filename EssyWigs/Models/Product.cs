@@ -13,7 +13,7 @@ namespace EssyWigs.Models
         {
         }
 
-        public Product(int productId, string name, string colour, string material, string hairType, string capSize, double price, string description, Supplier supplier, bool productWDiscount)
+        public Product(int productId, string name, string colour, string material, string hairType, string capSize, double price, string description, string image, Supplier supplier, bool productWDiscount)
         {
             ProductId = productId;
             Name = name;
@@ -23,6 +23,7 @@ namespace EssyWigs.Models
             CapSize = capSize;
             Price = price;
             Description = description;
+            Image = image;
             
 
             Supplier = supplier;
@@ -38,6 +39,7 @@ namespace EssyWigs.Models
         public string CapSize { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
+        public string Image { get; set; }
         public int? SupplierId { get; set; }
         public Supplier Supplier { get; set; }
         public bool ProductWDiscount { get; set; }

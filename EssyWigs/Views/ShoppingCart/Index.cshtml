@@ -5,7 +5,7 @@
 <table class="table table-bordered table-striped">
     <thread>
         <tr>
-            <th>Amount for selected items</th>
+            <th>Quantity</th>
             <th>Product</th>
             <th class="text-right">Price</th>
             <th class="text-right">Totalcost</th>
@@ -18,7 +18,7 @@
             <td class="text-center">@line.TotalCost</td>
             <td class="text-left">@line.Product.Name</td>
             <td class="text-right">@line.Product.Price.ToString("c")</td>
-            <td class="text-right">@((line.TotalCost).ToString("c"))</td>
+            <td class="text-right">@((line.TotalCost*line.Product.Price).ToString("c"))</td>
         </tr>
         }
     </tbody>

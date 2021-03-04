@@ -4,14 +4,16 @@ using EssyWigs.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EssyWigs.Migrations
 {
     [DbContext(typeof(WigDbContext))]
-    partial class WigDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210303113334_removedCustomer")]
+    partial class removedCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,9 +74,6 @@ namespace EssyWigs.Migrations
                     b.Property<string>("HairType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Material")
                         .HasColumnType("nvarchar(max)");
 
@@ -101,10 +100,9 @@ namespace EssyWigs.Migrations
                         {
                             ProductId = 1,
                             CapSize = "15cm",
-                            Colour = "Blonde",
+                            Colour = "Maroon",
                             Description = "Fluffy synthetic wig",
                             HairType = "Kinky",
-                            Image = "/Images/BlondeHair.jpg",
                             Material = "Ronah Synthetic Hair",
                             Name = "Front Lace Wig",
                             Price = 200.0,
@@ -118,7 +116,6 @@ namespace EssyWigs.Migrations
                             Colour = "Black",
                             Description = "Very soft human hair wig. Can be washed and styled.",
                             HairType = "Kinky",
-                            Image = "/Images/Logo.jpg",
                             Material = "Jane Human Hair",
                             Name = "Lace Wig",
                             Price = 300.0,
@@ -132,7 +129,6 @@ namespace EssyWigs.Migrations
                             Colour = "Blonde",
                             Description = "soft human hair wig",
                             HairType = "Coily",
-                            Image = "/Images/LongBlonde.jpg",
                             Material = "Jane Human Hair",
                             Name = "Beautiful Blonde Wavy",
                             Price = 160.0,
@@ -146,7 +142,6 @@ namespace EssyWigs.Migrations
                             Colour = "Brown",
                             Description = "Wavy wig with failry good hair volume for right fitting.",
                             HairType = "Wavy",
-                            Image = "/Images/BrownHair.jpg",
                             Material = "Jane Human Hair",
                             Name = "Brown Wavy Wig",
                             Price = 400.0,
@@ -157,10 +152,9 @@ namespace EssyWigs.Migrations
                         {
                             ProductId = 5,
                             CapSize = "25cm",
-                            Colour = "Black",
+                            Colour = "Gold",
                             Description = "This wig adds alot of brightness to one's look.",
                             HairType = "Kinky",
-                            Image = "/Images/Kinky.jpg",
                             Material = "Jane Human Hair",
                             Name = "Full Wave Wig",
                             Price = 350.0,
@@ -171,10 +165,9 @@ namespace EssyWigs.Migrations
                         {
                             ProductId = 6,
                             CapSize = "15cm",
-                            Colour = "Black",
+                            Colour = "Gold",
                             Description = "Beautiful hair piece.",
                             HairType = "Curly",
-                            Image = "/Images/Curly.jpg",
                             Material = "Jane Human Hair",
                             Name = "Remy Human Hair",
                             Price = 100.0,
@@ -185,10 +178,9 @@ namespace EssyWigs.Migrations
                         {
                             ProductId = 7,
                             CapSize = "15cm",
-                            Colour = "Blonde",
+                            Colour = "Gold",
                             Description = "Beautiful hair piece.",
                             HairType = "Curly",
-                            Image = "/Images/Synthetic.jpg",
                             Material = "Ronah Synthetic Hair",
                             Name = "Remy Human Hair",
                             Price = 100.0,

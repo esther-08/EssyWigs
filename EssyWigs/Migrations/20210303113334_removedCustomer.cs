@@ -2,7 +2,7 @@
 
 namespace EssyWigs.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class removedCustomer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

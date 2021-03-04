@@ -18,25 +18,13 @@ namespace EssyWigs.Controllers
             _productOrderRepository = productOrderRepository;
             _shoppingCart = shoppingCart;
         }
-        // GET: ProductOrderController
+       
         public IActionResult Checkout()
         {
             return View();
         }
 
-        // GET: ProductOrderController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
-        //// GET: ProductOrderController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-       
+              
         [HttpPost]
         public IActionResult Checkout(ProductOrder productOrder)
         {
@@ -45,7 +33,7 @@ namespace EssyWigs.Controllers
 
             if (_shoppingCart.ShoppingCartProducts.Count == 0)
             {
-                ModelState.AddModelError("", "Theres are no items in the cart, add to proceed");
+                ModelState.AddModelError("", "Theres are no items in the cart, add products to proceed");
             }
 
             if (ModelState.IsValid)
@@ -55,66 +43,12 @@ namespace EssyWigs.Controllers
                 return RedirectToAction("CheckoutFinished");
             }
             return View(productOrder);
-        
         }
-
         public IActionResult CheckoutFinished()
         {
             ViewBag.CheckoutFinishedMessage = "Your order has been registered. Your selected items will be shipped to you as soon as possible.";
 
             return View();
         }
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: ProductOrderController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: ProductOrderController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: ProductOrderController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: ProductOrderController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }

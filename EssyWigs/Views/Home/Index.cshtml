@@ -1,13 +1,15 @@
 ﻿@model HomeViewModel
 
-
 <partial name="_Wig" />
 
-<h2>Products on Discount</h2>
 
-<div class="row">
-    @foreach(var Product in Model.ProductWDiscount)
-    {
-        <partial name="_Product" model="Product" />
-    }
-</div>
+ 
+    <h3 class="text-success">Products on Sale</h3>
+
+    <div class="row">
+        @foreach (var Product in Model.ProductWDiscount)
+        {
+            <partial name="_Product" model="Product" />
+        }
+    </div>
+  
