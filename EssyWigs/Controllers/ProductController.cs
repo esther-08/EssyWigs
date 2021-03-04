@@ -44,7 +44,7 @@ namespace EssyWigs.Controllers
             return View(new ProductListViewModel
             {
                 Products = products,
-                ProductWDiscount = productWDiscount.ToString()
+                //ProductWDiscount = productWDiscount.ToString()
             });
         }
     }
