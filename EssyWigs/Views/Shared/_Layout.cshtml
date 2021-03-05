@@ -2,25 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"] - EssyWigs</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/jquery.js"></script>
     <script src="~/lib/bootstrap/js/bootsrap.js"></script>
     <link href="~/Content/site.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <table border="0" style="width:960px; font-family:Arial" align="center" >
+<body style="background-color:thistle">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">EssyWigs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link">On Discount</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Product" asp-action="List" class="nav-link"> All Products</a>
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+
+    <table border="0" style="width:960px; font-family:Arial" align="center">
         <tr>
-            <td colspan="2" style="text-align:center; background-color:cadetblue; color:white"><h3>EssyWigs</h3></td>
-        </tr>
-        <tr>
-            <td style="width:200px"; background-color:cadetblue; color="green"><h3>70% Dicsount</h3></td>
             <td style="width:960px" align="center">@RenderBody()</td>
         </tr>
         <tr>
-            <td colspan="2" style="text-align:center; font-size:x-small; background-color:cadetblue; color:white">
+            <td colspan="2" style="text-align:center; font-size:x-small; color:black">
                 <footer class="border-top footer text-muted">
                     <div class="container">
                         &copy; 2021 - EssyWigs - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -28,49 +48,20 @@
                 </footer>
             </td>
         </tr>
-    
-    @*<nav class="navbar navbar-inverse-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#essywigs">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="essywig">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>                  
-                        <li><a asp-controller="Product" asp-action="List">Products</a></li>
-                        <li><a asp-controller="Supplier" asp-action="Default">Suppliers</a></li>
-                        @await Component.InvokeAsync("SupplierMenu")
-                        @await Component.InvokeAsync("ShoppingCartSummary")
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>*@
-    
-    @*<div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <p class="lead"></p>
-            </div>
-        </div>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>*@
 
-   @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - EssyWigs - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/jquery.min.js"></script>
+        @*<div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p class="lead"></p>
+                    </div>
+                </div>
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>*@
+    </table>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-   </table>
 </body>
 </html>
