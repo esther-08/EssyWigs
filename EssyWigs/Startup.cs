@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EssyWigs.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace EssyWigs
 {
@@ -25,15 +25,15 @@ namespace EssyWigs
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WigDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WigDbContext")));
-            
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<WigDbContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
             services.AddScoped<ShoppingCart>(sp=> ShoppingCart.GetCart(sp));
             services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
             services.AddHttpContextAccessor();
             services.AddSession();
-
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -60,6 +60,7 @@ namespace EssyWigs
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
